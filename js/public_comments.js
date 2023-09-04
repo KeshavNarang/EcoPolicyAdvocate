@@ -15,11 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     const bill = bills.find(bill => bill.bill_id === billId);
 
                     if (bill) {
-                        const titleElement = document.querySelector('h2');
+                        const titleElement = document.querySelector('h4');
                         const summaryElement = document.getElementById('summary');
+                        const commentElement = document.getElementById('comment');
 
-                        titleElement.textContent = bill.bill_id;
+                        titleElement.textContent = bill.title;
                         summaryElement.textContent = `Summary: ${bill.summary}`;
+                        
+                        // Set the comment textarea value
+                        if (data.hasOwnProperty(bill.bill_id)) {
+                            commentElement.value = data[bill.bill_id];
+                        }
 
                         // Toggle Summary Functionality
                         const toggleSummaryButton = document.getElementById('toggleSummary');
