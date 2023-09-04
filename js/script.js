@@ -1,6 +1,6 @@
 // js/script.js
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('../climate_change_bills.json') // Replace with the path to your JSON file
+    fetch('climate_change_bills.json') // Replace with the path to your JSON file
         .then(response => response.json())
         .then(data => {
             const billList = document.getElementById('bill-list');

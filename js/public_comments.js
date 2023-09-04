@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const billId = params.get('id');
     
-    fetch('../climate_change_bills.json') // Replace with the path to your JSON file
+    fetch('public_comments.json') // Replace with the path to your JSON file
         .then(response => response.json())
         .then(data => {
             const bill = data.find(b => b.bill_id === billId);
