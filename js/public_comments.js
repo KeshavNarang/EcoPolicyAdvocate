@@ -8,23 +8,36 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('generated_comments.json') // Replace with the path to your JSON file
         .then(response => response.json())
         .then(data => {
-            const commentContainer = document.getElementById('comment-container');
-            
-            // Check if the billId exists in the generated comments data
-            if (data.hasOwnProperty(billId)) {
-                const comment = document.createElement('div');
-                comment.classList.add('card', 'mb-3');
-                comment.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${billId}</h5>
-                        <p class="card-text">${data[billId]}</p>
-                    </div>
-                `;
-                commentContainer.appendChild(comment);
-            } else {
-                const noComment = document.createElement('div');
-                noComment.innerHTML = '<p>No public comments available for this bill.</p>';
-                commentContainer.appendChild(noComment);
-            }
+            // Fetch the climate_change_bills.json file
+            fetch('climate_change_bills.json') // Replace with the path to your JSON file
+                .then(response => response.json())
+                .then(bills => {
+                    const bill = bills.find(bill => bill.bill_id === billId);
+
+                    if (bill) {
+                        const titleElement = document.querySelector('h2');
+                        const summaryElement = document.getElementById('summary');
+
+                        titleElement.textContent = bill.bill_id;
+                        summaryElement.textContent = `Summary: ${bill.summary}`;
+
+                        // Toggle Summary Functionality
+                        const toggleSummaryButton = document.getElementById('toggleSummary');
+                        let isSummaryVisible = true;
+
+                        toggleSummaryButton.addEventListener('click', function () {
+                            if (isSummaryVisible) {
+                                summaryElement.style.display = 'none';
+                                isSummaryVisible = false;
+                            } else {
+                                summaryElement.style.display = 'block';
+                                isSummaryVisible = true;
+                            }
+                        });
+                    } else {
+                        // Handle the case where the bill with the specified ID is not found
+                        console.error('Bill not found.');
+                    }
+                });
         });
 });
