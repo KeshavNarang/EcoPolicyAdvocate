@@ -14,13 +14,25 @@
 		</a>
 	</header>
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-8 mx-auto" id="comment-container">
-                <!-- Comments for the selected bill will be inserted here dynamically -->
-            </div>
-        </div>
-    </div>
-    <a href="index.html" class="btn btn-secondary mt-3 mx-auto d-block">Back to Bill List</a>
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<h2 class="text-center">${bill.bill_id}</h2>
+				<h4 class="text-center">${bill.title}</h4>
+				<p class="text-center">Summary: <span id="summary">${bill.summary}</span></p>
+				<button class="btn btn-link text-center" id="toggleSummary">Toggle Summary</button>
+				<textarea class="form-control mt-3" id="comment" rows="5">${data[bill.bill_id]}</textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col text-center">
+				<a href="index.html" class="btn btn-secondary">Back to Bill List</a>
+			</div>
+		</div>
+	</div>
+
     <script src="js/public_comments.js"></script>
 </body>
 </html>
