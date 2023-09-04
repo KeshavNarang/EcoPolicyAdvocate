@@ -4,34 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Public Comments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div>
-        <h1>Public Comments</h1>
-        <ul id="comments-container">
-            <!-- Comments will be displayed here -->
-        </ul>
+    <header class="bg-success text-white text-center py-5">
+        <h1 class="display-4">Public Comments</h1>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto" id="comment-container">
+                <!-- Comments for the selected bill will be inserted here dynamically -->
+            </div>
+        </div>
     </div>
-
-    <script>
-        // Load and display public comments
-        fetch('generated_comments.json')
-            .then(response => response.json())
-            .then(data => {
-                // Assuming you have a JSON array of comments
-                const comments = data.comments;
-
-                // Find the container element where you want to display comments
-                const commentsContainer = document.getElementById('comments-container');
-
-                // Iterate through comments and add them to the container
-                comments.forEach(comment => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = comment.text;
-                    commentsContainer.appendChild(listItem);
-                });
-            })
-            .catch(error => console.error('Error loading JSON:', error));
-    </script>
+    <a href="index.html" class="btn btn-secondary mt-3">Back to Bill List</a>
+    <script src="js/public_comments.js"></script>
 </body>
 </html>
