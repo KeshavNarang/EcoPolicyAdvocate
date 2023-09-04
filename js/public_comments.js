@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const bill = bills.find(bill => bill.bill_id === billId);
 
                     if (bill) {
+                        const billIdElement = document.querySelector('h2');
                         const titleElement = document.querySelector('h4');
                         const summaryElement = document.getElementById('summary');
                         const commentElement = document.getElementById('comment');
 
+                        billIdElement.textContent = bill.bill_id;
                         titleElement.textContent = bill.title;
                         summaryElement.textContent = `Summary: ${bill.summary}`;
                         
