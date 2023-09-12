@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         billIdElement.textContent = bill.bill_id;
                         titleElement.textContent = bill.title;
-                        summaryElement.textContent = `Summary: ${bill.summary}`;
+                        summaryElement.textContent = bill.summary;
                         
                         // Set the comment textarea value
                         if (data.hasOwnProperty(bill.bill_id)) {
