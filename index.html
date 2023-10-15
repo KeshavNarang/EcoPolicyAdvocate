@@ -5,17 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoPolicyAdvocate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .box {
+            background-color: #7FB3D5;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .box:hover {
+            background-color: #337AB7;
+            cursor: pointer;
+        }
+
+        .box a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .box img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
     <header class="bg-success text-white text-center py-3">
-		<a href="index.html" style="text-decoration: none; color: white;">
-			<h1 class="display-4">Welcome to The Eco Policy Advocate</h1>
-			<p class="lead">Your source for climate change bills and public comments.</p>
-		</a>
-	</header>
-    <div class="container mt-4">
-        <div class="row" id="bill-list">
-            <!-- Bill cards will be inserted here dynamically -->
+        <a href="index.html" style="text-decoration: none; color: white;">
+            <h1 class="display-4">Welcome to The Eco Policy Advocate</h1>
+            <p class="lead">Your source for climate change bills and public comments.</p>
+        </a>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <a href="drought.html">
+                        <h2>Drought</h2>
+                        <img src="img/drought.png" alt="Drought Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <a href="wildfire.html">
+                        <h2>Wildfire</h2>
+                        <img src="img/wildfire.jpg" alt="Wildfire Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <a href="renewable_energy.html">
+                        <h2>Renewable Energy</h2>
+                        <img src="img/renewable_energy.png" alt="Renewable Energy Icon">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
