@@ -3,72 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPolicyAdvocate</title>
+    <title>Eco Policy Advocate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; /* Light Gray */
+        }
+        .header {
+            background-color: #007bff; /* Blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .header-links {
+            margin-top: 20px;
+        }
+        .header-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         .box {
-            background-color: #7FB3D5;
+            background-color: #ffffff; /* White */
             padding: 20px;
             text-align: center;
             border-radius: 10px;
-            margin: 10px;
+            margin: 20px 0;
             transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .box:hover {
-            background-color: #337AB7;
+            background-color: #007bff; /* Blue */
+            color: white;
             cursor: pointer;
         }
-
         .box a {
             text-decoration: none;
+            color: #333;
+        }
+        .box h2 {
+            font-size: 2rem;
+        }
+        .box p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+		.footer {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+		.selected-box {
+            background-color: #007bff; /* Blue */
             color: white;
         }
-
-        .box img {
-            width: 100px;
-            height: 100px;
+		.zip-code-input {
+            background-color: #ffffff; /* White */
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .zip-code-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
-    <header class="bg-success text-white text-center py-3">
+    <header class="header">
         <a href="index.html" style="text-decoration: none; color: white;">
-            <h1 class="display-4">Welcome to The Eco Policy Advocate</h1>
-            <p class="lead">Your source for climate change bills and public comments.</p>
+            <h1 class="display-4">Eco Policy Advocate</h1>
+            <p>Your source for climate change bills and public comments.</p>
         </a>
+        <div class="header-links">
+            <a href="account.html">Create Account</a>
+            <a href="learn-more.html">Learn More</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
     <div class="container">
         <div class="row">
+			<div class="col-md-12">
+				<div class="zip-code-input">
+					<form id="zip-code-form">
+						<input type="text" placeholder="Enter your zip code" id="zip-code-input">
+						<input type="submit" value="Submit Zip Code">
+					</form>
+				</div>
+			</div>
+		</div>
+        <div class="row">
             <div class="col-md-4">
                 <div class="box">
-                    <a href="drought.html">
+                    <a href="#">
                         <h2>Drought</h2>
-                        <img src="img/drought.png" alt="Drought Icon">
+                        <p>Learn about drought and its impact on the environment.</p>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="box">
-                    <a href="wildfire.html">
+                    <a href="#">
                         <h2>Wildfire</h2>
-                        <img src="img/wildfire.jpg" alt="Wildfire Icon">
+                        <p>Explore wildfire prevention and management strategies.</p>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="box">
-                    <a href="renewable_energy.html">
-                        <h2>Renewable Energy</h2>
-                        <img src="img/renewable_energy.png" alt="Renewable Energy Icon">
-                    </a>
-                </div>
+				<div class="box">
+					<a href="#">
+						<h2>Flood</h2>
+						<p>Discover how communities prepare for and respond to floods.</p>
+					</a>
+				</div>
+			</div>
+        </div>
+        <!-- Add more content boxes here -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Oil Refineries</h2>
+						<p>Explore the environmental impact of oil refineries.</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Coal Power Plants</h2>
+						<p>Learn about coal power and its alternatives.</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Natural Gas</h2>
+						<p>Discover the pros and cons of natural gas energy.</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Solar Power</h2>
+						<p>Learn how solar energy is harnessed for a sustainable future.</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Wind Turbines</h2>
+						<p>Explore the role of wind turbines in renewable energy.</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<a href="#">
+						<h2>Hydropower</h2>
+						<p>Discover the power of water in generating electricity.</p>
+					</a>
+				</div>
+			</div>
+		</div>
+    <!-- Idea Submission Form -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="zip-code-input">
+                <form id="idea-form">
+                    <input type="text" placeholder="Submit an idea" id="idea-input">
+                    <input type="submit" value="Submit Idea">
+                </form>
+                <ul id="idea-list"></ul>
             </div>
         </div>
     </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Eco Policy Advocate</p>
+        <p>Contact: contact@ecopolicyadvocate.com</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+        // JavaScript for tracking interests and handling user interactions
+        const selectedInterests = [];
+        const zipCodes = [];
+        const ideas = [];
+
+        // Function to toggle the selected state of a box
+        function toggleSelected(box, interest) {
+            if (selectedInterests.includes(interest)) {
+                // Deselect the box
+                box.classList.remove("selected-box");
+                const index = selectedInterests.indexOf(interest);
+                selectedInterests.splice(index, 1);
+            } else {
+                // Select the box
+                box.classList.add("selected-box");
+                selectedInterests.push(interest);
+            }
+        }
+
+        // Add click event listeners to topic boxes
+        document.getElementById("drought-box").addEventListener("click", function () {
+            toggleSelected(this, "Drought");
+        });
+        document.getElementById("wildfire-box").addEventListener("click", function () {
+            toggleSelected(this, "Wildfire");
+        });
+        // Add more event listeners for other topics
+
+        // Zip code form submission
+        const zipCodeForm = document.getElementById("zip-code-form");
+        const zipCodeInput = document.getElementById("zip-code-input");
+        zipCodeForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            zipCodes.push(zipCodeInput.value);
+            zipCodeInput.value = "";
+        });
+
+        // Idea submission form
+        const ideaForm = document.getElementById("idea-form");
+        const ideaInput = document.getElementById("idea-input");
+        const ideaList = document.getElementById("idea-list");
+        ideaForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const idea = ideaInput.value;
+            ideas.push(idea);
+            ideaInput.value = "";
+            const listItem = document.createElement("li");
+            listItem.textContent = idea;
+            ideaList.appendChild(listItem);
+        });
+
+        // Function to navigate to a page based on selected interests
+        function goToPage() {
+            // Check the selected interests array and construct the URL accordingly
+            if (selectedInterests.length > 0) {
+                const url = "page-based-on-interests.html?interests=" + selectedInterests.join(",");
+                window.location.href = url;
+            } else {
+                alert("Please select at least one interest before proceeding.");
+            }
+        }
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
