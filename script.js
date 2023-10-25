@@ -1,0 +1,127 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const nonprofitButtons = document.querySelectorAll('.nonprofit-button');
+    const interestButtons = document.querySelectorAll('.interest-button');
+    const selectedInterests = document.getElementById("selected-interests");
+    const interestsList = selectedInterests.querySelector("ul");
+
+    const selectedInterestsArray = [];
+    const manuallySelectedInterests = [];
+
+    const interestsForNonprofits = {
+        '350': ["Coal", "Oil", "Natural Gas", "Solar", "Wind", "Geothermal", "Deforestation", "Environmental Justice"],
+        'Acterra': ["Electric Vehicles", "Building Electrification", "Bike Lanes", "Climate Education", "Sustainable Food"],
+        'Sierra Club': ["Tobacco", "Wildlife", "National Park", "Environmental Justice", "Clean Air", "Clean Water", "Fracking", "Climate Resilience"],
+        'ClimateHealthNow': ["Asthma", "Climate Health", "Environmental Justice", "Healthcare Sustainability", "Healthcare Decarbonization"],
+        'GreenTeamPower': ["Drought", "Flood", "Wildfire", "Coal", "Oil", "Natural Gas", "Solar", "Wind", "Hydropower", "Geothermal", "Conservation", "Sustainable Agriculture"]
+    };
+
+    // Function to set interests for a nonprofit
+    function setInterestsForNonprofit(organization) {
+        const interests = interestsForNonprofits[organization];
+        interests.forEach((interest) => {
+            const interestButton = document.querySelector(`.interest-button[data-interest="${interest}"]`);
+            if (interestButton) {
+                if (!selectedInterestsArray.includes(interest) && !manuallySelectedInterests.includes(interest)) {
+                    interestButton.classList.add("selected");
+                    selectedInterestsArray.push(interest);
+                }
+            }
+        });
+    }
+
+    // Function to update the interests list
+    function updateInterestsList() {
+		/*
+		interestsList.innerHTML = "";
+        selectedInterestsArray.forEach((interest) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = interest;
+            interestsList.appendChild(listItem);
+        });
+		*/
+    }
+
+    // Event listener for nonprofit buttons
+    nonprofitButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            const organization = button.getAttribute('data-nonprofit');
+
+            if (button.classList.contains('active')) {
+                setInterestsForNonprofit(organization);
+            } else {
+                const interests = interestsForNonprofits[organization];
+                interests.forEach((interest) => {
+                    const interestButton = document.querySelector(`.interest-button[data-interest="${interest}"]`);
+                    if (interestButton) {
+                        const otherNonprofits = Array.from(nonprofitButtons)
+                            .filter((nonprofit) => nonprofit !== button && nonprofit.classList.contains('active'));
+                        const otherNonprofitSelected = otherNonprofits.some((nonprofit) =>
+                            interestsForNonprofits[nonprofit.getAttribute('data-nonprofit')].includes(interest)
+                        );
+                        if (!otherNonprofitSelected && !manuallySelectedInterests.includes(interest)) {
+                            interestButton.classList.remove("selected");
+                            const index = selectedInterestsArray.indexOf(interest);
+                            if (index > -1) {
+                                selectedInterestsArray.splice(index, 1);
+                            }
+                        }
+                    }
+                });
+            }
+
+            updateInterestsList();
+        });
+    });
+
+    interestButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			const interest = button.getAttribute("data-interest");
+			const wasManuallySelected = button.getAttribute("data-manual") === "true";
+
+			button.classList.toggle("selected");
+
+			if (button.classList.contains("selected")) {
+				if (!selectedInterestsArray.includes(interest)) {
+					selectedInterestsArray.push(interest);
+				}
+			} else {
+				if (!wasManuallySelected) {
+					const index = selectedInterestsArray.indexOf(interest);
+					if (index > -1) {
+						selectedInterestsArray.splice(index, 1);
+					}
+				}
+			}
+
+			// Update the interests list immediately
+			updateInterestsList();
+		});
+	});
+	
+	document.getElementById("toggle").addEventListener("click", function () {
+		// Toggle the 'hidden' class on all paragraphs
+		var paragraphs = document.querySelectorAll(".hidden");
+		for (var i = 0; i < paragraphs.length; i++) {
+			if (paragraphs[i].style.display === "block") {
+				paragraphs[i].style.display = "none";
+			} else {
+				paragraphs[i].style.display = "block";
+			}
+		}
+	});
+	
+	document.getElementById("form-dropdown").addEventListener("click", function () {
+		var newsContent = document.getElementById("news-content");
+		if (newsContent.style.display === "none" || newsContent.style.display === "") {
+			newsContent.style.display = "block";
+		} else {
+			newsContent.style.display = "none";
+		}
+	});
+
+
+    // Initialize interests list
+    updateInterestsList();
+});
+

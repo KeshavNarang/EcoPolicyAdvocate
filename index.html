@@ -1,279 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Policy Advocate</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7; /* Light Gray */
-        }
-        .header {
-            background-color: #007bff; /* Blue */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        .header p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        .header-links {
-            margin-top: 20px;
-        }
-        .header-links a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2rem;
-            margin: 0 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .box {
-            background-color: #ffffff; /* White */
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin: 20px 0;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .box:hover {
-            background-color: #007bff; /* Blue */
-            color: white;
-            cursor: pointer;
-        }
-        .box a {
-            text-decoration: none;
-            color: #333;
-        }
-        .box h2 {
-            font-size: 2rem;
-        }
-        .box p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-		.footer {
-            background-color: #333; /* Dark Gray */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-		.selected-box {
-            background-color: #007bff; /* Blue */
-            color: white;
-        }
-		.zip-code-input {
-            background-color: #ffffff; /* White */
-            padding: 10px;
-            text-align: center;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .zip-code-input input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Include FontAwesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" style="text-decoration: none; color: white;">
-            <h1 class="display-4">Eco Policy Advocate</h1>
-            <p>Your source for climate change bills and public comments.</p>
-        </a>
-        <div class="header-links">
-            <a href="account.html">Create Account</a>
-            <a href="learn-more.html">Learn More</a>
-            <a href="contact.html">Contact</a>
+    <header class="professional-header">
+        <div class="header-content">
+            <a href="index.html" class="home-link">
+                <i class="fas fa-leaf"></i>
+                <h1>Eco Policy Advocate</h1>
+            </a>
+			<!-- 
+			<p class="tagline">One-Stop Shop for Environmental Policy and Advocacy</p> 
+			-->
+            <nav class="navbar">
+                <ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="demo.html">Bill Tracker</a></li>
+					<li><a href="suggest.html">Suggest</a></li>
+					<li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <div class="container">
-        <div class="row">
-			<div class="col-md-12">
-				<div class="zip-code-input">
-					<form id="zip-code-form">
-						<input type="text" placeholder="Enter your zip code" id="zip-code-input">
-						<input type="submit" value="Submit Zip Code">
-					</form>
+	
+	<div class="introduction-card">
+		<h2 id="toggle">Welcome to the EcoPolicyAdvocate! <br> Click this text to learn more, or scroll down to use. </h2>
+		<div class="card-content">
+			<!-- Add class 'hidden' to hide this initially -->
+			<p class="hidden">
+				&emsp;&emsp;Inspired by Elizabeth Anderson's essay, <a href="https://www.cambridge.org/core/journals/episteme/article/abs/democracy/public-policy/and-lay-assessments/of-scientific-testimony1/C96369F581A9091635E522D4ED671DBE" target="_blank">"Democracy, Public Policy, and Lay Assessments of Scientific Testimony"</a>, the EcoPolicyAdvocate was created with a mission to simplify and scale environmental advocacy efforts for all. The EcoPolicyAdvocate was designed to address a tension between two key demands in American society – that public policies be empirically responsible and that they be democratically legitimate. 
+			</p>
+			<p class="hidden">
+				&emsp;&emsp; In the context of the environment, a challenge arises because ordinary citizens often face difficulties comprehending scientific research and engaging with technical public policies. I created the EcoPolicyAdvocate, in partnership with multiple local, national, and international organizations, to be an all-in-one bill tracker that analyzes new legislation on a daily basis. Powered by Generative AI, the website summarizes and categorizes bills by relevant tags, which you can filter based on your interests, and creates templates for messages that you can send to your representatives, urging them to take action.
+			</p>
+			<p class="hidden">
+				&emsp;&emsp; Our vision is 1) for nonprofits to integrate this and alleviate burden in collaboration and 2) make this a one-stop resource for advocates everywhere to learn more about technical topics and prepare powerful, informed comments for everything from written emails to elected officials to speeches at local officials. We are working hard and with transparency to keep improving, so visit our suggest changes to see how we will improve and share your own ideas, or if you are a nonprofit or would like to speak, contact. For your privacy, no data is collected.
+			</p>
+		</div>
+	</div>
+	<br>
+	
+	<div class = "content">
+		<div class="nonprofits">
+			<h2>Nonprofit Organizations</h2>
+			<p> Select any nonprofits you are a member of: </p>
+			<ul class="nonprofit-list">
+				<li><button type="button" class="nonprofit-button" data-nonprofit="350">350.org </button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="Acterra">Acterra</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="Sierra Club">Sierra Club</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="GreenTeamPower">Green Team Power</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="SunriseMovement">Sunrise Movement</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="ClimateHealthNow">Climate Health Now</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="YouthVsApocalypse">Youth vs Apocalypse</button></li>
+			</ul>
+		</div>
+		
+		<div class="interests-section">
+			<h2>Select Your Environmental Interests</h2>
+			<p>Select as many areas of interest as you wish. When you join a nonprofit, their interests are automatically added.</p>
+			<form id="interests-form">
+				<div class="interest-options">
+					<!-- Common Interests -->
+
+				<!-- Unique Interests for Nonprofits -->
+				<button type="button" class="interest-button" data-interest="Coal">Coal</button>
+				<button type="button" class="interest-button" data-interest="Oil">Oil</button>
+				<button type="button" class="interest-button" data-interest="Natural Gas">Natural Gas</button>
+				
+				<button type="button" class="interest-button" data-interest="Solar">Solar</button>
+				<button type="button" class="interest-button" data-interest="Wind">Wind</button>
+				<button type="button" class="interest-button" data-interest="Geothermal">Geothermal</button>
+				<button type="button" class="interest-button" data-interest="Hydropower">Hydropower</button>
+				
+				<button type="button" class="interest-button" data-interest="Clean Air">Clean Air</button>
+				<button type="button" class="interest-button" data-interest="Clean Water">Clean Water</button>
+				
+				<button type="button" class="interest-button" data-interest="Drought">Drought</button>
+				<button type="button" class="interest-button" data-interest="Flood">Flood</button>
+				<button type="button" class="interest-button" data-interest="Wildfire">Wildfire</button>
+				
+				<button type="button" class="interest-button" data-interest="Electric Vehicles">Electric Vehicles</button>
+				<button type="button" class="interest-button" data-interest="Building Electrification">Building Electrification</button>
+				<button type="button" class="interest-button" data-interest="Bike Lanes">Bike Lanes</button>
+				
+				<button type="button" class="interest-button" data-interest="Wildlife">Wildlife</button>
+				<button type="button" class="interest-button" data-interest="National Park">National Park</button>
+				<button type="button" class="interest-button" data-interest="Deforestation">Deforestation</button>
+				
+				<button type="button" class="interest-button" data-interest="Climate Education">Climate Education</button>
+				<button type="button" class="interest-button" data-interest="Environmental Justice">Environmental Justice</button>
+				<button type="button" class="interest-button" data-interest="Sustainable Agriculture">Sustainable Agriculture</button>
+				
+				<button type="button" class="interest-button" data-interest="Climate Health">Climate Health</button>
+				<button type="button" class="interest-button" data-interest="Healthcare Decarbonization">Healthcare Decarbonization</button>
+				
+				<a href="#" target="_blank" class="submit-button">Submit <i class="fas fa-external-link-alt"></i></a>
+
+
+				<!--
+				<button type="button" class="interest-button" data-interest="Sustainable Food">Sustainable Food</button>
+				<button type="button" class="interest-button" data-interest="Tobacco">Tobacco</button>
+				
+				
+				<button type="button" class="interest-button" data-interest="Fracking">Fracking</button>
+				<button type="button" class="interest-button" data-interest="Climate Resilience">Climate Resilience</button>
+				-->
+				
+				<!-- Add more interest buttons as needed -->
 				</div>
+			</form>
+			
+			<div id="selected-interests">
+				<ul></ul>
 			</div>
 		</div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="box">
-                    <a href="#">
-                        <h2>Drought</h2>
-                        <p>Learn about drought and its impact on the environment.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <a href="#">
-                        <h2>Wildfire</h2>
-                        <p>Explore wildfire prevention and management strategies.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Flood</h2>
-						<p>Discover how communities prepare for and respond to floods.</p>
-					</a>
-				</div>
-			</div>
-        </div>
-        <!-- Add more content boxes here -->
-		<div class="row">
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Oil Refineries</h2>
-						<p>Explore the environmental impact of oil refineries.</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Coal Power Plants</h2>
-						<p>Learn about coal power and its alternatives.</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Natural Gas</h2>
-						<p>Discover the pros and cons of natural gas energy.</p>
-					</a>
-				</div>
+	</div>
+	
+	<div class="news-card">
+		<h2>News and Suggestions</h2>
+		<div class="card-content">
+			<p>&emsp;&emsp; 1) We are working on incorporating ZIP code, so that messages can be more personalized to your representatives specifically, including their position on the bill. </p>
+			<p>&emsp;&emsp; 2) We are working on creating forums with a page for each bill so that you can ask questions, experts can answer, and others who are involved can share more details to harness power of activist community. </p>
+			<p>&emsp;&emsp; 3) We are working with nonprofits to fact-check and ensure accuracy and trust in AI, perhaps including their own modifications for bills and multiple, improved templates. </p>
+			<p>&emsp;&emsp; 4) We are working on creating accounts so that a community can be fostered. You will be able to meet and connect with other climate activists, find and invite individuals from your organization, and star bills you would like your members to focus on. </p>
+			
+			<p> Have you tried using the EcoPolicyAdvocate, and have any suggestions? We are actively beta-testing internally with few select nonprofits to improve, but we will really appreciate and act on your feedback too! Thank you for being an involved activist. </p> 
+		</div>
+	</div>
+	<br>
+	
+	<div class="news-card">
+		<h2>Contact</h2>
+			<p>&emsp;&emsp; If you are a nonprofit to collaborate, or would like to contact for another reason, please do so here or email keshavn@ohs.stanford.edu. Have you tried using the EcoPolicyAdvocate, and have any suggestions? We are actively beta-testing internally with few select nonprofits to improve, but this is the perfect place to really appreciate and act on your feedback too! Thank you for being an involved activist. </p>
+			
+			<div class="feedback-form">
+				<form>
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" required placeholder="Your name">
+					
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required placeholder="Your email">
+					
+					<label for="feedback">Message:</label>
+					<textarea id="feedback" name="feedback" required placeholder="Your feedback"></textarea>
+					
+					<button type="submit" class="submit-button">Submit</button>
+				</form>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Solar Power</h2>
-						<p>Learn how solar energy is harnessed for a sustainable future.</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Wind Turbines</h2>
-						<p>Explore the role of wind turbines in renewable energy.</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box">
-					<a href="#">
-						<h2>Hydropower</h2>
-						<p>Discover the power of water in generating electricity.</p>
-					</a>
-				</div>
-			</div>
-		</div>
-    <!-- Idea Submission Form -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="zip-code-input">
-                <form id="idea-form">
-                    <input type="text" placeholder="Submit an idea" id="idea-input">
-                    <input type="submit" value="Submit Idea">
-                </form>
-                <ul id="idea-list"></ul>
-            </div>
-        </div>
-    </div>
-    </div>
-    <footer class="footer">
-        <p>&copy; 2023 Eco Policy Advocate</p>
-        <p>Contact: contact@ecopolicyadvocate.com</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script>
-        // JavaScript for tracking interests and handling user interactions
-        const selectedInterests = [];
-        const zipCodes = [];
-        const ideas = [];
-
-        // Function to toggle the selected state of a box
-        function toggleSelected(box, interest) {
-            if (selectedInterests.includes(interest)) {
-                // Deselect the box
-                box.classList.remove("selected-box");
-                const index = selectedInterests.indexOf(interest);
-                selectedInterests.splice(index, 1);
-            } else {
-                // Select the box
-                box.classList.add("selected-box");
-                selectedInterests.push(interest);
-            }
-        }
-
-        // Add click event listeners to topic boxes
-        document.getElementById("drought-box").addEventListener("click", function () {
-            toggleSelected(this, "Drought");
-        });
-        document.getElementById("wildfire-box").addEventListener("click", function () {
-            toggleSelected(this, "Wildfire");
-        });
-        // Add more event listeners for other topics
-
-        // Zip code form submission
-        const zipCodeForm = document.getElementById("zip-code-form");
-        const zipCodeInput = document.getElementById("zip-code-input");
-        zipCodeForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            zipCodes.push(zipCodeInput.value);
-            zipCodeInput.value = "";
-        });
-
-        // Idea submission form
-        const ideaForm = document.getElementById("idea-form");
-        const ideaInput = document.getElementById("idea-input");
-        const ideaList = document.getElementById("idea-list");
-        ideaForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            const idea = ideaInput.value;
-            ideas.push(idea);
-            ideaInput.value = "";
-            const listItem = document.createElement("li");
-            listItem.textContent = idea;
-            ideaList.appendChild(listItem);
-        });
-
-        // Function to navigate to a page based on selected interests
-        function goToPage() {
-            // Check the selected interests array and construct the URL accordingly
-            if (selectedInterests.length > 0) {
-                const url = "page-based-on-interests.html?interests=" + selectedInterests.join(",");
-                window.location.href = url;
-            } else {
-                alert("Please select at least one interest before proceeding.");
-            }
-        }
-    </script>
-    <script src="js/script.js"></script>
+	</div>
+	<br>
+	
+    <script src="script.js"></script>
 </body>
 </html>

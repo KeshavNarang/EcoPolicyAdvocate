@@ -1,0 +1,352 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e6f7ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.professional-header {
+    background-color: rgba(0, 128, 0); /* Slightly transparent background color */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0; /* Adjust padding for refinement */
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    border-radius: 4px 4px 4px 4px; /* Gently rounded corners at the top */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.home-link {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.home-link i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.home-link:hover {
+    color: #00cc99; /* Change color on hover */
+}
+
+.tagline {
+    font-size: 14px; /* Adjust the font size for the tagline */
+    color: #fff; /* Slightly transparent text */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #00cc99; /* Change color on hover */
+}
+
+/* Your existing CSS styles for other elements remain the same */
+/* Style for the Introduction Card */
+.introduction-card {
+    background-color: #fff;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 120px 4% 0 2.5%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.introduction-card h2 {
+    color: #008000;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+.introduction-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 15px 0;
+}
+
+.introduction-card a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.introduction-card a:hover {
+    color: #00997f;
+}
+
+.hidden {
+    display: none; /* Initially hide the paragraphs with this class */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 20px;
+}
+
+.nonprofits {
+    width: 60%;
+    margin: 0 5%; /* Equal margin on left and right */
+    padding: 20px;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+.interests-section {
+    width: 100%;
+    margin: 0 -10%; /* Equal margin on left and right */
+    padding: 20px;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+p {
+    color: #555;
+    max-width: 1200px; /* Set a maximum width for the paragraph */
+}
+
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #008000;
+    font-weight: 600;
+}
+
+.nonprofit-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+.interest-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.interest-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #008000;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid #008000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    text-align: center;
+}
+
+.interest-button:hover {
+    border: 2px solid #00997f;
+	background-color: #00997f;
+}
+
+.interest-button.selected {
+    border: 2px solid #0073e6;
+	background-color: #0073e6;
+    color: #fff;
+}
+
+.nonprofit-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #008000;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid #008000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    text-align: center;
+    margin-bottom: 10px; /* Add spacing between buttons */
+	width: 100%; /* Set a fixed width for the buttons */
+}
+
+.nonprofit-button:hover {
+    border: 2px solid #0073e6;
+	background-color: #0073e6;
+    color: #fff;
+	
+	/*
+	background-color: #fff;
+	color: #008000;
+    border-color: #008000; /* Dark green border on hover */
+}
+
+.nonprofit-button.active {
+    border: 2px solid #0073e6;
+	background-color: #0073e6;
+    color: #fff;
+}
+
+.news-card {
+    background-color: #fff;
+    border: 2px solid #008000; /* Same border as Nonprofits and Interests */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px 4% 0 2.5%; /* Centered and extends from left to right */
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.news-card h2 {
+    color: #008000;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.news-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 15px 0;
+}
+
+
+.submit-button {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    background-color: #fff;
+    color: #008000; /* Green text color */
+    font-weight: bold; /* Bold text */
+    padding: 10px 20px;
+    border: 2px solid #008000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+    text-decoration: none;
+}
+
+.submit-button a {
+    text-decoration: none;
+	color:inherit;
+}
+
+.submit-button:hover {
+    background-color: #0073e6; /* New background color on hover */
+    color: #008000; /* Green text color remains on hover */
+    border: 2px solid #0073e6; /* Blue border on hover */
+	color: white;
+}
+
+.submit-button:active {
+    background-color: #0073e6; /* Background color remains blue when clicked */
+    border: 2px solid #0073e6; /* Border color remains blue when clicked */
+	color: white;
+}
+
+.feedback-form {
+    background-color: #fff;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px 4% 0 2.5%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.feedback-form h3 {
+    color: #008000;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+	cursor: pointer;
+}
+
+.feedback-form label {
+    color: #555;
+    font-weight: 500;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #008000;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+}
+
+.feedback-form input[type="text"]::placeholder,
+.feedback-form input[type="email"]::placeholder,
+.feedback-form textarea::placeholder {
+    color: #ccc; /* Gray placeholder text */
+}
+
+.feedback-form button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #008000;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #008000; /* Re-add border to the submit button */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+    display: block; /* Make the button a block element for centering */
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+.feedback-form button:hover {
+    background-color: #0073e6;
+    color: #fff;
+    border: 2px solid #0073e6;
+}
+
+.feedback-form button:active {
+    background-color: #0073e6;
+    border: 2px solid #0073e6;
+    color: #fff;
+}
