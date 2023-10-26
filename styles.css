@@ -125,7 +125,7 @@ body {
 
 .nonprofits {
     width: 60%;
-    margin: 0 5%; /* Equal margin on left and right */
+    margin: 0 7.5%; /* Equal margin on left and right */
     padding: 20px;
     border: 2px solid #008000;
     border-radius: 10px;
@@ -140,8 +140,8 @@ body {
 }
 
 .interests-section {
-    width: 100%;
-    margin: 0 -10%; /* Equal margin on left and right */
+    width: 98%;
+    margin: 0 -9%; /* Equal margin on left and right */
     padding: 20px;
     border: 2px solid #008000;
     border-radius: 10px;
@@ -324,19 +324,21 @@ h2 {
 .feedback-form input[type="text"],
 .feedback-form input[type="email"],
 .feedback-form textarea {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #008000;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
     color: #555;
+	resize: vertical; /* Allow vertical resizing only */
 }
 
 .feedback-form input[type="text"]::placeholder,
 .feedback-form input[type="email"]::placeholder,
 .feedback-form textarea::placeholder {
     color: #ccc; /* Gray placeholder text */
+
 }
 
 .feedback-form button {
@@ -363,4 +365,11 @@ h2 {
     background-color: #0073e6;
     border: 2px solid #0073e6;
     color: #fff;
+}
+
+/* Apply the equal-width-containers class to the relevant containers */
+.introduction-card, .news-card, .feedback-form {
+    /* These containers should have equal width */
+    width: calc((100%); /* Divide the available space into 3 equal parts */
+    margin: 0 2.5%; /* Add margin to each container for spacing */
 }
