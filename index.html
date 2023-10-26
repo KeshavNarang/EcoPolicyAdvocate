@@ -19,42 +19,42 @@
 			-->
             <nav class="navbar">
                 <ul>
-					<li><a href="about.html">About</a></li>
-					<li><a href="demo.html">Bill Tracker</a></li>
-					<li><a href="suggest.html">Suggest</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#bill_tracker">Bill Tracker</a></li>
+					<li><a href="#news">News</a></li>
+					<li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 	
-	<div class="introduction-card">
-		<h2 id="toggle">Welcome to the EcoPolicyAdvocate! <br> Click this text to learn more, or scroll down to use. </h2>
+	<div class="introduction-card" id="about">
+		<h2 id="toggle">Welcome to the EcoPolicyAdvocate </h2>
 		<div class="card-content">
 			<!-- Add class 'hidden' to hide this initially -->
-			<p class="hidden">
-				&emsp;&emsp;Inspired by Elizabeth Anderson's essay, <a href="https://www.cambridge.org/core/journals/episteme/article/abs/democracy/public-policy/and-lay-assessments/of-scientific-testimony1/C96369F581A9091635E522D4ED671DBE" target="_blank">"Democracy, Public Policy, and Lay Assessments of Scientific Testimony"</a>, the EcoPolicyAdvocate was created with a mission to simplify and scale environmental advocacy efforts for all. The EcoPolicyAdvocate was designed to address a tension between two key demands in American society – that public policies be empirically responsible and that they be democratically legitimate. 
+			<p>
+				&emsp;&emsp;Inspired by Elizabeth Anderson's essay, <a href="https://www.cambridge.org/core/journals/episteme/article/abs/democracy-public-policy-and-lay-assessments-of-scientific-testimony1/C96369F581A9091635E522D4ED671DBE" target="_blank">"Democracy, Public Policy, and Lay Assessments of Scientific Testimony"</a>, the EcoPolicyAdvocate was created with a mission to simplify and scale environmental advocacy efforts. The EcoPolicyAdvocate was designed to address a tension between two key demands in American society – that public policies be empirically responsible and that they be democratically legitimate. 
 			</p>
-			<p class="hidden">
-				&emsp;&emsp; In the context of the environment, a challenge arises because ordinary citizens often face difficulties comprehending scientific research and engaging with technical public policies. I created the EcoPolicyAdvocate, in partnership with multiple local, national, and international organizations, to be an all-in-one bill tracker that analyzes new legislation on a daily basis. Powered by Generative AI, the website summarizes and categorizes bills by relevant tags, which you can filter based on your interests, and creates templates for messages that you can send to your representatives, urging them to take action.
+			<p>
+				&emsp;&emsp; Ordinary citizens often face difficulties comprehending scientific research and engaging with technical public policies, especially in the context of the environment. I created the EcoPolicyAdvocate, in partnership with multiple local, national, and international organizations, to be an all-in-one bill tracker that analyzes legislation on a daily basis. Powered by Generative AI, the website summarizes bills and creates templates for messages that you can send to your representatives, urging them to take action. 
 			</p>
-			<p class="hidden">
-				&emsp;&emsp; Our vision is 1) for nonprofits to integrate this and alleviate burden in collaboration and 2) make this a one-stop resource for advocates everywhere to learn more about technical topics and prepare powerful, informed comments for everything from written emails to elected officials to speeches at local officials. We are working hard and with transparency to keep improving, so visit our suggest changes to see how we will improve and share your own ideas, or if you are a nonprofit or would like to speak, contact. For your privacy, no data is collected.
+			<p>
+				&emsp;&emsp;  Our mission is to create well-informed, impactful messages for advocacy, from sending emails to elected officials to delivering powerful speeches. Our vision is to empower individuals and nonprofits in addressing global environmental issues.
 			</p>
 		</div>
 	</div>
 	<br>
 	
-	<div class = "content">
+	<div class = "content" id="bill_tracker">
 		<div class="nonprofits">
 			<h2>Nonprofit Organizations</h2>
-			<p> Select any nonprofits you are a member of: </p>
+			<p> When you select a nonprofit, its interests will automatically be added. Select the nonprofits which you are a member of: </p>
 			<ul class="nonprofit-list">
 				<li><button type="button" class="nonprofit-button" data-nonprofit="350">350.org </button></li>
 				<li><button type="button" class="nonprofit-button" data-nonprofit="Acterra">Acterra</button></li>
 				<li><button type="button" class="nonprofit-button" data-nonprofit="Sierra Club">Sierra Club</button></li>
-				<li><button type="button" class="nonprofit-button" data-nonprofit="GreenTeamPower">Green Team Power</button></li>
 				<li><button type="button" class="nonprofit-button" data-nonprofit="SunriseMovement">Sunrise Movement</button></li>
+				<li><button type="button" class="nonprofit-button" data-nonprofit="GreenTeamPower">Green Team Power</button></li>
 				<li><button type="button" class="nonprofit-button" data-nonprofit="ClimateHealthNow">Climate Health Now</button></li>
 				<li><button type="button" class="nonprofit-button" data-nonprofit="YouthVsApocalypse">Youth vs Apocalypse</button></li>
 			</ul>
@@ -62,7 +62,7 @@
 		
 		<div class="interests-section">
 			<h2>Select Your Environmental Interests</h2>
-			<p>Select as many areas of interest as you wish. When you join a nonprofit, their interests are automatically added.</p>
+			<p>The list of bills that show up will be personalized to your interests. Select as many interests as you wish: </p>
 			<form id="interests-form">
 				<div class="interest-options">
 					<!-- Common Interests -->
@@ -94,7 +94,7 @@
 				
 				<button type="button" class="interest-button" data-interest="Climate Education">Climate Education</button>
 				<button type="button" class="interest-button" data-interest="Environmental Justice">Environmental Justice</button>
-				<button type="button" class="interest-button" data-interest="Sustainable Agriculture">Sustainable Agriculture</button>
+				<button type="button" class="interest-button" data-interest="Affordable Housing">Affordable Housing</button>
 				
 				<button type="button" class="interest-button" data-interest="Climate Health">Climate Health</button>
 				<button type="button" class="interest-button" data-interest="Healthcare Decarbonization">Healthcare Decarbonization</button>
@@ -121,22 +121,24 @@
 		</div>
 	</div>
 	
-	<div class="news-card">
-		<h2>News and Suggestions</h2>
+	<div class="news-card" id="news">
+		<h2>News</h2>
 		<div class="card-content">
-			<p>&emsp;&emsp; 1) We are working on incorporating ZIP code, so that messages can be more personalized to your representatives specifically, including their position on the bill. </p>
-			<p>&emsp;&emsp; 2) We are working on creating forums with a page for each bill so that you can ask questions, experts can answer, and others who are involved can share more details to harness power of activist community. </p>
-			<p>&emsp;&emsp; 3) We are working with nonprofits to fact-check and ensure accuracy and trust in AI, perhaps including their own modifications for bills and multiple, improved templates. </p>
-			<p>&emsp;&emsp; 4) We are working on creating accounts so that a community can be fostered. You will be able to meet and connect with other climate activists, find and invite individuals from your organization, and star bills you would like your members to focus on. </p>
+			<ol>
+				<li>Incorporating ZIP code for personalized messages to representatives and their stance on bills.</li>
+				<li>Creating bill-specific forums for questions, expert responses, and community involvement.</li>
+				<li>Collaborating with nonprofits to enhance AI accuracy and trust, allowing bill modifications and improved templates.</li>
+				<li>Developing user accounts to foster a community, facilitating connections with fellow activists and organization members.</li>
+			</ol>
 			
-			<p> Have you tried using the EcoPolicyAdvocate, and have any suggestions? We are actively beta-testing internally with few select nonprofits to improve, but we will really appreciate and act on your feedback too! Thank you for being an involved activist. </p> 
+			<p> We're actively conducting internal beta tests with a select group of nonprofits to make improvements. We welcome your feedback as your input is highly valued, and we thank you for your involvement as an activist. </p>
 		</div>
 	</div>
 	<br>
 	
-	<div class="news-card">
+	<div class="news-card" id="contact">
 		<h2>Contact</h2>
-			<p>&emsp;&emsp; If you are a nonprofit to collaborate, or would like to contact for another reason, please do so here or email keshavn@ohs.stanford.edu. Have you tried using the EcoPolicyAdvocate, and have any suggestions? We are actively beta-testing internally with few select nonprofits to improve, but this is the perfect place to really appreciate and act on your feedback too! Thank you for being an involved activist. </p>
+			<p> Please reach out here or email me at keshavn@ohs.stanford.edu if you're a nonprofit looking to collaborate, an individual who has used the EcoPolicyAdvocate and would like to make a suggestion, or for any other reason: </p>
 			
 			<div class="feedback-form">
 				<form>

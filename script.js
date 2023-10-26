@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const interestsForNonprofits = {
         '350': ["Coal", "Oil", "Natural Gas", "Solar", "Wind", "Geothermal", "Deforestation", "Environmental Justice"],
-        'Acterra': ["Electric Vehicles", "Building Electrification", "Bike Lanes", "Climate Education", "Sustainable Food"],
+        'Acterra': ["Electric Vehicles", "Building Electrification", "Bike Lanes"],
         'Sierra Club': ["Tobacco", "Wildlife", "National Park", "Environmental Justice", "Clean Air", "Clean Water", "Fracking", "Climate Resilience"],
         'ClimateHealthNow': ["Asthma", "Climate Health", "Environmental Justice", "Healthcare Sustainability", "Healthcare Decarbonization"],
-        'GreenTeamPower': ["Drought", "Flood", "Wildfire", "Coal", "Oil", "Natural Gas", "Solar", "Wind", "Hydropower", "Geothermal", "Conservation", "Sustainable Agriculture"]
+        'GreenTeamPower': ["Drought", "Flood", "Wildfire", "Coal", "Oil", "Natural Gas", "Solar", "Wind", "Hydropower", "Geothermal", "Conservation", "Sustainable Agriculture"],
+		'SunriseMovement': ["Coal", "Oil", "Natural Gas", "Solar", "Wind", "Geothermal", "Hydropower", "Clean Air", "Clean Water", "Environmental Justice", "Affordable Housing"],
+		'YouthVsApocalypse': ["Coal", "Oil", "Natural Gas", "Solar", "Wind", "Geothermal", "Clean Air", "Climate Education", "Environmental Justice"]
     };
 
     // Function to set interests for a nonprofit
@@ -99,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 	
+	/*
 	document.getElementById("toggle").addEventListener("click", function () {
 		// Toggle the 'hidden' class on all paragraphs
 		var paragraphs = document.querySelectorAll(".hidden");
@@ -119,7 +122,28 @@ document.addEventListener("DOMContentLoaded", function () {
 			newsContent.style.display = "none";
 		}
 	});
+	*/
+	
+	var navLinks = document.querySelectorAll('.navbar a');
+	var headerHeight = 120;
 
+	// Add a click event listener to each navigation link
+	navLinks.forEach(function (link) {
+		link.addEventListener('click', function (event) {
+			event.preventDefault(); // Prevent the default jump
+
+			var targetId = this.getAttribute('href').substring(1); // Get the target ID
+			var targetElement = document.getElementById(targetId); // Get the target element
+
+			if (targetElement) {
+				var offsetTop = targetElement.offsetTop - headerHeight; // Adjust for header
+				window.scrollTo({
+					top: offsetTop,
+					behavior: 'smooth' // Smooth scrolling
+				});
+			}
+		});
+	});
 
     // Initialize interests list
     updateInterestsList();

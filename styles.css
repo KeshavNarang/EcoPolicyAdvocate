@@ -120,7 +120,7 @@ body {
 .content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .nonprofits {
@@ -133,6 +133,10 @@ body {
     background-color: #fff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     overflow: auto;
+}
+
+.nonprofits p {
+	text-align: center;
 }
 
 .interests-section {
@@ -148,7 +152,8 @@ body {
 }
 
 p {
-    color: #555;
+	font-family: 'Montserrat', sans-serif;
+	color: #555;
     max-width: 1200px; /* Set a maximum width for the paragraph */
 }
 
@@ -232,6 +237,7 @@ h2 {
     padding: 20px;
     margin: 20px 4% 0 2.5%; /* Centered and extends from left to right */
     font-family: 'Montserrat', sans-serif;
+	margin-top: 20px;
 }
 
 
@@ -244,12 +250,20 @@ h2 {
 }
 
 .news-card p {
-    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
     line-height: 1.5;
     color: #555;
     margin: 0 0 15px 0;
 }
 
+.news-card li {
+    font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 15px 0;
+}
 
 .submit-button {
     font-family: 'Montserrat', sans-serif;
