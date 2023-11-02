@@ -144,8 +144,31 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 	});
+	
+	const interestsSection = document.querySelector('.interests-section');
+    const submitButton = document.querySelector('.submit-button'); // Select the submit button
+
+    let interestsActivated = false;
+
+    // Function to set the interests section as active
+    function activateInterestsSection() {
+        interestsActivated = true;
+        interestsSection.classList.add('active');
+        submitButton.style.display = 'block'; // Display the submit button
+    }
+
+    // Add click event listener to activate the interests section
+    interestsSection.addEventListener('click', function (event) {
+        if (!interestsActivated) {
+            activateInterestsSection();
+        }
+    });
+
+    // Add click event listeners to the nonprofit buttons
+    nonprofitButtons.forEach((button) => {
+        button.addEventListener('click', activateInterestsSection);
+    });
 
     // Initialize interests list
     updateInterestsList();
 });
-
