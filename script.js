@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             interestsList.appendChild(listItem);
         });
 		*/
+		localStorage.setItem("selectedInterestsArray", JSON.stringify(selectedInterestsArray));
     }
 
     // Event listener for nonprofit buttons
@@ -168,6 +169,13 @@ document.addEventListener("DOMContentLoaded", function () {
     nonprofitButtons.forEach((button) => {
         button.addEventListener('click', activateInterestsSection);
     });
+	
+	// index.html
+	document.getElementById("bill-submit").addEventListener("click", function () {
+	  // Print the interestsList before storing it
+	  console.log("Interests List (in index.html):", selectedInterestsArray);
+	});
+
 
     // Initialize interests list
     updateInterestsList();
