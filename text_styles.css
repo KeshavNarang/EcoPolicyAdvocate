@@ -1,0 +1,21 @@
+.card {
+    margin: 20px;
+    border: 2px solid #ccc;
+    box-shadow: 3px 3px 5px #888;
+    padding: 10px;
+    text-align: center;
+}
+.card-title {
+    font-size: 20px;
+}
+.card-text {
+    font-size: 14px;
+}
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
