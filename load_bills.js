@@ -11,25 +11,29 @@ function showComments(interest, billId) {
                     const commentContainer = document.createElement('div');
                     commentContainer.classList.add('comment-container');
 
+                    // Create a button to toggle comment visibility
+                    const toggleCommentButton = document.createElement('button');
+                    toggleCommentButton.textContent = 'Make a Comment';
+
                     // Create an editable text box for the comment
                     const commentTextArea = document.createElement('textarea');
                     commentTextArea.value = commentText;
                     // Set the default width and height
                     commentTextArea.style.width = '100%'; // Adjust as needed
                     commentTextArea.style.height = '100px'; // Adjust as needed
+                    commentTextArea.style.display = 'none';
 
                     // Create a button to send an email
                     const sendEmailButton = document.createElement('button');
                     sendEmailButton.textContent = 'Send an Email';
+                    sendEmailButton.style.display = 'none';
                     sendEmailButton.addEventListener('click', () => {
                         // Implement email sending logic here
                         // You can open a modal or perform any other action as needed
                         alert('Email sending logic goes here');
                     });
 
-                    // Create a button to toggle comment visibility
-                    const toggleCommentButton = document.createElement('button');
-                    toggleCommentButton.textContent = 'Make a Comment';
+                    // Add a click event listener to the toggle button
                     toggleCommentButton.addEventListener('click', () => {
                         if (commentTextArea.style.display === 'none') {
                             commentTextArea.style.display = 'block';
@@ -42,14 +46,10 @@ function showComments(interest, billId) {
                         }
                     });
 
-                    // Hide the text box and Send Email button by default
-                    commentTextArea.style.display = 'none';
-                    sendEmailButton.style.display = 'none';
-
-                    // Append the comment text area, Send Email button, and toggle button to the container
+                    // Append the toggle button, comment text area, and send email button to the container
+                    commentContainer.appendChild(toggleCommentButton);
                     commentContainer.appendChild(commentTextArea);
                     commentContainer.appendChild(sendEmailButton);
-                    commentContainer.appendChild(toggleCommentButton);
 
                     // Insert the comment container above the "Make a Comment" button
                     const makeCommentButton = document.querySelector(`[data-bill-id="${billId}"]`);
@@ -65,7 +65,6 @@ function showComments(interest, billId) {
             console.error(`Error loading comments from ${interest}_comments.json:`, error);
         });
 }
-
 document.addEventListener("DOMContentLoaded", () => {
     const billList = document.getElementById("billList");
     const selectedInterestsArray = JSON.parse(localStorage.getItem("selectedInterestsArray"));
@@ -94,11 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <p>Summary: ${bill.title}</p>
                                     <p>Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
                                     <p class="card-text">Source: ${sources.join(', ')}</p>
-                                    <a href="javascript:void(0);" class="btn btn-primary d-block mx-auto" 
+                                    <button class="btn btn-primary d-block mx-auto" 
                                         data-bill-id="${bill.bill_id}" 
                                         onclick="showComments('${interest}', '${bill.bill_id}')">
                                         Make a Comment
-                                    </a>
+                                    </button>
                                 </div>
                             `;
                             return { card, sources };
