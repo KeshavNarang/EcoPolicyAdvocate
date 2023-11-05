@@ -1,70 +1,3 @@
-function showComments(interest, billId) {
-    const commentsURL = `comments/${interest}_comments.json`;
-
-    fetch(commentsURL)
-        .then(response => response.json())
-        .then(data => {
-            if (typeof data === 'object' && data !== null) {
-                const commentText = data[billId];
-                if (commentText) {
-                    // Create a container to display the comment
-                    const commentContainer = document.createElement('div');
-                    commentContainer.classList.add('comment-container');
-
-                    // Create a button to toggle comment visibility
-                    const toggleCommentButton = document.createElement('button');
-                    toggleCommentButton.textContent = 'Make a Comment';
-
-                    // Create an editable text box for the comment
-                    const commentTextArea = document.createElement('textarea');
-                    commentTextArea.value = commentText;
-                    // Set the default width and height
-                    commentTextArea.style.width = '100%'; // Adjust as needed
-                    commentTextArea.style.height = '100px'; // Adjust as needed
-                    commentTextArea.style.display = 'none';
-
-                    // Create a button to send an email
-                    const sendEmailButton = document.createElement('button');
-                    sendEmailButton.textContent = 'Send an Email';
-                    sendEmailButton.style.display = 'none';
-                    sendEmailButton.addEventListener('click', () => {
-                        // Implement email sending logic here
-                        // You can open a modal or perform any other action as needed
-                        alert('Email sending logic goes here');
-                    });
-
-                    // Add a click event listener to the toggle button
-                    toggleCommentButton.addEventListener('click', () => {
-                        if (commentTextArea.style.display === 'none') {
-                            commentTextArea.style.display = 'block';
-                            sendEmailButton.style.display = 'block';
-                            toggleCommentButton.textContent = 'Hide the Comment';
-                        } else {
-                            commentTextArea.style.display = 'none';
-                            sendEmailButton.style.display = 'none';
-                            toggleCommentButton.textContent = 'Make a Comment';
-                        }
-                    });
-
-                    // Append the toggle button, comment text area, and send email button to the container
-                    commentContainer.appendChild(toggleCommentButton);
-                    commentContainer.appendChild(commentTextArea);
-                    commentContainer.appendChild(sendEmailButton);
-
-                    // Insert the comment container above the "Make a Comment" button
-                    const makeCommentButton = document.querySelector(`[data-bill-id="${billId}"]`);
-                    makeCommentButton.parentNode.insertBefore(commentContainer, makeCommentButton);
-                } else {
-                    console.error(`No comment found for bill ID ${billId} in ${interest}_comments.json`);
-                }
-            } else {
-                console.error(`Invalid data structure in ${interest}_comments.json`);
-            }
-        })
-        .catch(error => {
-            console.error(`Error loading comments from ${interest}_comments.json:`, error);
-        });
-}
 document.addEventListener("DOMContentLoaded", () => {
     const billList = document.getElementById("billList");
     const selectedInterestsArray = JSON.parse(localStorage.getItem("selectedInterestsArray"));
@@ -95,9 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <button class="btn btn-primary d-block mx-auto" 
                                         data-bill-id="${bill.bill_id}" 
-                                        onclick="showComments('${interest}', '${bill.bill_id}')">
+                                        onclick="toggleComment(this, '${interest}', '${bill.bill_id}')">
                                         Make a Comment
                                     </button>
+                                    <div class="comment-container" style="display: none;">
+                                        <textarea style="width: 100%; height: 100px;"></textarea>
+                                        <button style="display: none;">Send an Email</button>
+                                    </div>
                                 </div>
                             `;
                             return { card, sources };
@@ -129,3 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No interests selected.");
     }
 });
+
+function toggleComment(button, interest, billId) {
+    const commentContainer = button.parentElement.querySelector('.comment-container');
+    const toggleButton = button.querySelector('button');
+    if (commentContainer.style.display === 'none') {
+        commentContainer.style.display = 'block';
+        toggleButton.textContent = 'Hide the Comment';
+    } else {
+        commentContainer.style.display = 'none';
+        toggleButton.textContent = 'Make a Comment';
+    }
+}
