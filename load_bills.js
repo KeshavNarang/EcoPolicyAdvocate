@@ -13,23 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     return data.map(bill => {
                         if (!billIdSet.has(bill.bill_id)) {
                             billIdSet.add(bill.bill_id);
+                            // Create an array to store the sources
+                            const sources = [interest];
                             const card = document.createElement('div');
                             card.classList.add('card', 'mb-3');
                             card.style.border = '2px solid #ccc';
                             card.style.boxShadow = '3px 3px 5px #888';
-
-                            const interestsText = selectedInterestsArray.join(', '); // Concatenate all interests
                             card.innerHTML = `
                                 <div class="card-body">
                                     <h6 class="card-subtitle mb-2 text-muted text-center">${bill.bill_id}</h6>
                                     <h5 class="card-title text-center">${bill.short_title}</h5>
                                     <p class="card-text">Full Title: ${bill.title}</p>
                                     <p class="card-text">Full Text: ${bill.full_text}</p>
-                                    <p class="card-text">Source: ${interestsText}</p> <!-- Display all interests -->
+                                    <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <a href="javascript:void(0);" class="btn btn-primary d-block mx-auto" onclick="showComments('${interest}', '${bill.bill_id}')">Make a Comment</a>
                                 </div>
                             `;
-                            return card;
+                            return { card, sources };
                         } else {
                             return null;
                         }
@@ -43,8 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         Promise.all(fetchPromises)
             .then(cardsArrays => {
-                const allCards = cardsArrays.flat().filter(card => card !== null);
-                allCards.forEach(card => billList.appendChild(card));
+                const allCards = cardsArrays.flat().filter(item => item !== null);
+                allCards.forEach(({ card, sources }) => {
+                    // Append the card to the billList
+                    billList.appendChild(card);
+                    // Update the sources for each bill
+                    card.querySelector('.card-text').textContent = `Source: ${sources.join(', ')}`;
+                });
             })
             .catch(error => {
                 console.error("Error handling fetched data:", error);
@@ -53,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No interests selected.");
     }
 });
+
 
 function showComments(interest, billId) {
     const commentsURL = `comments/${interest}_comments.json`;
