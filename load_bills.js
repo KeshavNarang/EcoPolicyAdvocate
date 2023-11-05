@@ -60,17 +60,20 @@ function showComments(interest, billId) {
     fetch(commentsURL)
         .then(response => response.json())
         .then(data => {
-            const comment = data.find(comment => comment.bill_id === billId);
-
-            if (comment) {
-                const editableField = document.createElement('textarea');
-                editableField.value = comment.commentText;
-                const modal = document.createElement('div');
-                modal.appendChild(editableField);
-                // Append the modal to the document or display it as needed
-                // ...
+            if (typeof data === 'object' && data !== null) {
+                const commentText = data[billId];
+                if (commentText) {
+                    const editableField = document.createElement('textarea');
+                    editableField.value = commentText;
+                    const modal = document.createElement('div');
+                    modal.appendChild(editableField);
+                    // Append the modal to the document or display it as needed
+                    // ...
+                } else {
+                    console.error(`No comment found for bill ID ${billId} in ${interest}_comments.json`);
+                }
             } else {
-                console.error(`No comment found for bill ID ${billId} in ${interest}_comments.json`);
+                console.error(`Invalid data structure in ${interest}_comments.json`);
             }
         })
         .catch(error => {
