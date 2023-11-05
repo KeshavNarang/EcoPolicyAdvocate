@@ -15,7 +15,7 @@ function showComments(interest, billId) {
                     const commentTextArea = document.createElement('textarea');
                     commentTextArea.value = commentText;
                     // Set the default width and height
-                    commentTextArea.style.width = '80%'; // Adjust as needed
+                    commentTextArea.style.width = '100%'; // Adjust as needed
                     commentTextArea.style.height = '100px'; // Adjust as needed
 
                     // Create a button to send an email
@@ -29,7 +29,7 @@ function showComments(interest, billId) {
 
                     // Create a button to toggle comment visibility
                     const toggleCommentButton = document.createElement('button');
-                    toggleCommentButton.textContent = 'Hide the Comment';
+                    toggleCommentButton.textContent = 'Make a Comment';
                     toggleCommentButton.addEventListener('click', () => {
                         if (commentTextArea.style.display === 'none') {
                             commentTextArea.style.display = 'block';
