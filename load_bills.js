@@ -14,6 +14,9 @@ function showComments(interest, billId) {
                     // Create an editable text box for the comment
                     const commentTextArea = document.createElement('textarea');
                     commentTextArea.value = commentText;
+                    // Set the default width and height
+                    commentTextArea.style.width = '80%'; // Adjust as needed
+                    commentTextArea.style.height = '100px'; // Adjust as needed
 
                     // Create a button to send an email
                     const sendEmailButton = document.createElement('button');
@@ -24,9 +27,29 @@ function showComments(interest, billId) {
                         alert('Email sending logic goes here');
                     });
 
-                    // Append the comment text area and send email button to the container
+                    // Create a button to toggle comment visibility
+                    const toggleCommentButton = document.createElement('button');
+                    toggleCommentButton.textContent = 'Hide the Comment';
+                    toggleCommentButton.addEventListener('click', () => {
+                        if (commentTextArea.style.display === 'none') {
+                            commentTextArea.style.display = 'block';
+                            sendEmailButton.style.display = 'block';
+                            toggleCommentButton.textContent = 'Hide the Comment';
+                        } else {
+                            commentTextArea.style.display = 'none';
+                            sendEmailButton.style.display = 'none';
+                            toggleCommentButton.textContent = 'Make a Comment';
+                        }
+                    });
+
+                    // Hide the text box and Send Email button by default
+                    commentTextArea.style.display = 'none';
+                    sendEmailButton.style.display = 'none';
+
+                    // Append the comment text area, Send Email button, and toggle button to the container
                     commentContainer.appendChild(commentTextArea);
                     commentContainer.appendChild(sendEmailButton);
+                    commentContainer.appendChild(toggleCommentButton);
 
                     // Insert the comment container above the "Make a Comment" button
                     const makeCommentButton = document.querySelector(`[data-bill-id="${billId}"]`);
