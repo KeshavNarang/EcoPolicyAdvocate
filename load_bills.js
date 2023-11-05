@@ -4,7 +4,9 @@ function showComments(interest, billId) {
     fetch(commentsURL)
         .then(response => response.json())
         .then(data => {
-            if (commentText) {
+            if (typeof data === 'object' && data !== null) {
+                const commentText = data[billId];
+                if (commentText) {
                     // Create a container to display the comment
                     const commentContainer = document.createElement('div');
                     commentContainer.classList.add('comment-container');
