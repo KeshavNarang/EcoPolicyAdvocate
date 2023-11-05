@@ -11,12 +11,22 @@ function showComments(interest, billId) {
                     const commentContainer = document.createElement('div');
                     commentContainer.classList.add('comment-container');
 
-                    // Create a paragraph to display the comment text
-                    const commentParagraph = document.createElement('p');
-                    commentParagraph.textContent = commentText;
+                    // Create an editable text box for the comment
+                    const commentTextArea = document.createElement('textarea');
+                    commentTextArea.value = commentText;
 
-                    // Append the comment paragraph to the container
-                    commentContainer.appendChild(commentParagraph);
+                    // Create a button to send an email
+                    const sendEmailButton = document.createElement('button');
+                    sendEmailButton.textContent = 'Send an Email';
+                    sendEmailButton.addEventListener('click', () => {
+                        // Implement email sending logic here
+                        // You can open a modal or perform any other action as needed
+                        alert('Email sending logic goes here');
+                    });
+
+                    // Append the comment text area and send email button to the container
+                    commentContainer.appendChild(commentTextArea);
+                    commentContainer.appendChild(sendEmailButton);
 
                     // Insert the comment container above the "Make a Comment" button
                     const makeCommentButton = document.querySelector(`[data-bill-id="${billId}"]`);
