@@ -69,12 +69,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function toggleComment(button, interest, billId) {
     const commentContainer = button.parentElement.querySelector('.comment-container');
-    const toggleButton = button.querySelector('button');
+    const toggleButton = button;
     if (commentContainer.style.display === 'none') {
         commentContainer.style.display = 'block';
         toggleButton.textContent = 'Hide the Comment';
+        showComments(interest, billId);
     } else {
         commentContainer.style.display = 'none';
         toggleButton.textContent = 'Make a Comment';
     }
+}
+
+function showComments(interest, billId) {
+    const commentsURL = `comments/${interest}_comments.json`;
+
+    fetch(commentsURL)
+        .then(response => response.json())
+        .then(data => {
+            if (typeof data === 'object' && data !== null) {
+                const commentText = data[billId];
+                if (commentText) {
+                    const commentContainer = document.querySelector(`[data-bill-id="${billId}"] .comment-container`);
+                    const commentTextArea = commentContainer.querySelector('textarea');
+                    commentTextArea.value = commentText;
+
+                    // Show the comment container and the "Send Email" button
+                    commentContainer.style.display = 'block';
+                    commentContainer.querySelector('button').style.display = 'block';
+                } else {
+                    console.error(`No comment found for bill ID ${billId} in ${interest}_comments.json`);
+                }
+            } else {
+                console.error(`Invalid data structure in ${interest}_comments.json`);
+            }
+        })
+        .catch(error => {
+            console.error(`Error loading comments from ${interest}_comments.json:`, error);
+        });
 }
