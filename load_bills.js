@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <div class="card-body">
                                     <h6 class="card-subtitle mb-2 text-muted text-center">${bill.bill_id}</h6>
                                     <h5 class="card-title text-center">${bill.short_title}</h5>
-                                    <p class="card-text">Full Title: ${bill.title}</p>
-                                    <p class="card-text">Full Text: <a href="${bill.full_text}">${bill.full_text}</a></p>
+                                    <p>Summary: ${bill.title}</p>
+                                    <p class="card-text">Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
                                     <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <a href="javascript:void(0);" class="btn btn-primary d-block mx-auto" onclick="showComments('${interest}', '${bill.bill_id}')">Make a Comment</a>
                                 </div>
