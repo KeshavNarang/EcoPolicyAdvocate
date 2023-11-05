@@ -5,28 +5,12 @@
     padding: 10px;
     text-align: center;
 }
-
 .card-title {
     font-size: 20px;
 }
-
 .card-text {
     font-size: 14px;
 }
-
-.comment-container {
-    width: 400px; /* Adjust the width as needed */
-    max-width: 100%; /* Ensure it doesn't overflow the card */
-    padding: 10px;
-    text-align: center;
-}
-
-textarea {
-    width: 100%;
-    height: 100px; /* Height can be adjusted by the user */
-    margin-bottom: 10px;
-}
-
 .btn {
     background-color: #007bff;
     color: #fff;
@@ -34,18 +18,4 @@ textarea {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-/* Style the "Send Email" button */
-.btn:contains("Send an Email") {
-    background-color: #28a745; /* Green color */
-}
-
-.btn:contains("Send an Email"):hover {
-    background-color: #1e7e34; /* Darker green on hover */
 }
