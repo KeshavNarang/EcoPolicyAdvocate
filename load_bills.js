@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const billList = document.getElementById("billList");
-    const selectedInterestsArray = JSON.parse(localStorage.getItem("selectedInterestsArray"));
-	
-	function showComments(interest, billId) {
+function showComments(interest, billId) {
     const commentsURL = `comments/${interest}_comments.json`;
 
     fetch(commentsURL)
@@ -27,7 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             console.error(`Error loading comments from ${interest}_comments.json:`, error);
         });
-	}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const billList = document.getElementById("billList");
+    const selectedInterestsArray = JSON.parse(localStorage.getItem("selectedInterestsArray"));
 
     if (selectedInterestsArray) {
         const billIdSet = new Set();
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <h6 class="card-subtitle mb-2 text-muted text-center">${bill.bill_id}</h6>
                                     <h5 class="card-title text-center">${bill.short_title}</h5>
                                     <p class="card-text">Full Title: ${bill.title}</p>
-                                    <p class="card-text">Full Text: <a href = "${bill.full_text}"> ${bill.full_text} </a> </p>
+                                    <p class="card-text">Full Text: <a href="${bill.full_text}">${bill.full_text}</a></p>
                                     <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <a href="javascript:void(0);" class="btn btn-primary d-block mx-auto" onclick="showComments('${interest}', '${bill.bill_id}')">Make a Comment</a>
                                 </div>
