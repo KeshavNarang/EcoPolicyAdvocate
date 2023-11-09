@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (selectedInterestsArray) {
         const billIdSet = new Set();
-        const billSources = {}; // Object to store sources for each bill
 
         const fetchPromises = selectedInterestsArray.map(interest => {
             const dataURL = `bills/${interest}_data.json`;
@@ -14,25 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     return data.map(bill => {
                         if (!billIdSet.has(bill.bill_id)) {
                             billIdSet.add(bill.bill_id);
-                            // Update the sources for this bill
-                            if (!billSources[bill.bill_id]) {
-                                billSources[bill.bill_id] = [interest];
-                            } else {
-                                billSources[bill.bill_id].push(interest);
-                            }
-                            // Create a card for the bill
+                            const sources = [interest];
+                            const { styleClass, label } = getBillIDStyle(bill.bill_id, interest);
+
                             const card = document.createElement('div');
                             card.classList.add('card', 'mb-3');
                             card.style.border = '2px solid #ccc';
                             card.style.boxShadow = '3px 3px 5px #888';
                             card.innerHTML = `
                                 <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 text-muted text-center ${getBillIDStyle(bill.bill_id)}">
-                                        ${bill.bill_id} (source: ${billSources[bill.bill_id].join(', ')})
+                                    <h6 class="card-subtitle mb-2 text-muted text-center ${styleClass}">
+                                        ${bill.bill_id}${label}
                                     </h6>
                                     <h5 class="card-title text-center">${bill.short_title}</h5>
                                     <p>Summary: ${bill.title}</p>
                                     <p>Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
+                                    <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <button class="btn btn-primary d-block mx-auto"
                                         data-bill-id="${bill.bill_id}"
                                         onclick="toggleComment(this, '${interest}', '${bill.bill_id}')">
@@ -61,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const allCards = cardsArrays.flat().filter(item => item !== null);
                 if (allCards.length > 0) {
                     allCards.forEach(({ card }) => {
-                        // Append the card to the billList
                         billList.appendChild(card);
                     });
                 } else {
@@ -104,7 +99,6 @@ function showComments(interest, billId) {
                     const commentTextArea = commentContainer.querySelector('textarea');
                     commentTextArea.value = commentText;
 
-                    // Show the comment container and the "Send Email" button
                     commentContainer.style.display = 'block';
                     commentContainer.querySelector('button').style.display = 'block';
                 } else {
@@ -119,12 +113,15 @@ function showComments(interest, billId) {
         });
 }
 
-function getBillIDStyle(billID) {
-    if (billID.startsWith('hr')) {
-        return 'house-rep';
-    } else if (billID.startsWith('s')) {
-        return 'senate';
-    } else {
-        return '';
+function getBillIDStyle(billID, source) {
+    let styleClass = 'bill-id';
+    let label = '';
+
+    if (source === 'hr') {
+        label = ' (House of Representatives)';
+    } else if (source === 's') {
+        label = ' (Senate)';
     }
+
+    return { styleClass, label };
 }
