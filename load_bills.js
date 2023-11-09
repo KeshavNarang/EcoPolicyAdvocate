@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (selectedInterestsArray) {
         const billIdSet = new Set();
+        const billSources = {}; // Object to store sources for each bill
 
         const fetchPromises = selectedInterestsArray.map(interest => {
             const dataURL = `bills/${interest}_data.json`;
@@ -23,12 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             card.innerHTML = `
                                 <div class="card-body">
                                     <h6 class="card-subtitle mb-2 text-muted text-center ${styleClass}">
-                                        ${bill.bill_id}${label}
+                                        ${bill.bill_id}${label} (source: ${sources.join(', ')})
                                     </h6>
                                     <h5 class="card-title text-center">${bill.short_title}</h5>
                                     <p>Summary: ${bill.title}</p>
                                     <p>Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
-                                    <p class="card-text">Source: ${sources.join(', ')}</p>
                                     <button class="btn btn-primary d-block mx-auto"
                                         data-bill-id="${bill.bill_id}"
                                         onclick="toggleComment(this, '${interest}', '${bill.bill_id}')">
@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     </div>
                                 </div>
                             `;
+
+                            // Update the sources for this bill
+                            if (!billSources[bill.bill_id]) {
+                                billSources[bill.bill_id] = sources;
+                            } else {
+                                billSources[bill.bill_id].push(...sources);
+                            }
+
                             return { card };
                         } else {
                             return null;
