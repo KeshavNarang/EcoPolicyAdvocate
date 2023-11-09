@@ -14,22 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
 				return data.map(bill => {
 					if (!billIdSet.has(bill.bill_id)) {
 						billIdSet.add(bill.bill_id);
-						const sources = [interest];
-						const label = getBillIDStyle(bill.bill_id, interest);
-
+						const label = getBillIDStyle(bill.bill_id);
 						const card = document.createElement('div');
 						card.classList.add('card', 'mb-3');
 						card.style.border = '2px solid #ccc';
 						card.style.boxShadow = '3px 3px 5px #888';
 						card.innerHTML = `
-							<div class="card-body">
+							<div class="card-body" id="${bill.bill_id}">
 								<h6 class="card-subtitle mb-2 text-muted text-center bill-id">
 									${bill.bill_id}${label}
 								</h6>
 								<h5 class="card-title text-center">${bill.short_title}</h5>
 								<p>Summary: ${bill.title}</p>
 								<p>Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
-								<p class="card-text">Source: ${sources.join(', ')}</p>
+								<p class="card-text" id="sources-${bill.bill_id}">Source: {interest}</p>
 								<button class="btn btn-primary d-block mx-auto"
 									data-bill-id="${bill.bill_id}"
 									onclick="toggleComment(this, '${interest}', '${bill.bill_id}')">
@@ -43,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
 						`;
 						return { card };
 					} else {
+						const sources = document.getElementById('sources-${bill.bill_id}');
+						sources.append(', ${interest}');
 						return null;
 					}
 				});
@@ -114,12 +114,13 @@ function showComments(interest, billId) {
         });
 }
 
-function getBillIDStyle(billID, source) {
+// Modify the getBillIDStyle function to check the first two characters of the bill ID
+function getBillIDStyle(billID) {
     let label = '';
 
-    if (source === 'hr') {
+    if (billID.startsWith('hr')) {
         label = ' (House of Representatives)';
-    } else if (source === 's') {
+    } else if (billID.startsWith('s')) {
         label = ' (Senate)';
     }
 
