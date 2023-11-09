@@ -44,7 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
 						const sources = document.getElementById(`sources-${bill.bill_id}`);
 						if (sources) {
 							sources.textContent += `, ${interest}`;
+							const card = document.getElementById(`${bill.bill_id}`);
+							return {card};
 						}
+						return null;
 					}
 				});
 			})
