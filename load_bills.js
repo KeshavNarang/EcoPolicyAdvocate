@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 								<h5 class="card-title text-center">${bill.short_title}</h5>
 								<p>Summary: ${bill.title}</p>
 								<p>Full Text: <a href="${bill.full_text}" target="_blank">${bill.full_text}</a></p>
-								<p class="card-text" id="sources-${bill.bill_id}">Source: {interest}</p>
+								<p class="card-text" id="sources-${bill.bill_id}">Source: ${interest}</p>
 								<button class="btn btn-primary d-block mx-auto"
 									data-bill-id="${bill.bill_id}"
 									onclick="toggleComment(this, '${interest}', '${bill.bill_id}')">
@@ -41,9 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 						`;
 						return { card };
 					} else {
-						const sources = document.getElementById('sources-${bill.bill_id}');
-						sources.append(', ${interest}');
-						return null;
+						const sources = document.getElementById(`sources-${bill.bill_id}`);
+						if (sources) {
+							sources.textContent += `, ${interest}`;
+						}
 					}
 				});
 			})
