@@ -19,3 +19,13 @@
     border: none;
     border-radius: 5px;
 }
+
+.house-rep {
+    font-size: 24px; /* Adjust the font size as needed */
+    color: blue; /* Change the color for House of Representatives bills */
+}
+
+.senate {
+    font-size: 20px; /* Adjust the font size as needed */
+    color: green; /* Change the color for Senate bills */
+}
