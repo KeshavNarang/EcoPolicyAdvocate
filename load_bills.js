@@ -100,7 +100,7 @@ function showComments(interest, billId) {
             if (typeof data === 'object' && data !== null) {
                 const commentText = data[billId];
                 if (commentText) {
-                    const commentContainer = document.querySelector(`.comment-container`);
+                    const commentContainer = document.getElementById(`${billId}`).querySelector('.comment-container');
                     const commentTextArea = commentContainer.querySelector('textarea');
                     commentTextArea.value = commentText;
 
