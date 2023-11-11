@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 								</button>
 								<div class="comment-container" style="display: none;">
 									<textarea style="width: 100%; height: 100px;"></textarea>
-									<button style="display: none;">Send an Email</button>
+									<button class="send-email" style="display: none;">Send an Email</button>
 								</div>
 							</div>
 						`;
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							sources.textContent += `, ${interest}`;
 							const card = document.getElementById(`${bill.bill_id}`);
 						}
+						return null;
 					}
 				});
 			})

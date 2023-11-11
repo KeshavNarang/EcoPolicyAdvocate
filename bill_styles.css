@@ -24,3 +24,7 @@
     border: none;
     border-radius: 5px;
 }
+.send-email {
+    display: block; /* Ensure the button is displayed */
+    margin: 0 auto; /* Center horizontally */
+}
