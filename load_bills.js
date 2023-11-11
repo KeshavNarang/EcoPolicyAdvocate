@@ -85,11 +85,13 @@ function toggleComment(button, interest, billId) {
         commentContainer.style.display = 'block';
         toggleButton.textContent = 'Hide the Comment';
         showComments(interest, billId);
+        createEmailButton(button, interest, billId);
     } else {
         commentContainer.style.display = 'none';
         toggleButton.textContent = 'Make a Comment';
     }
 }
+
 
 function showComments(interest, billId) {
     const commentsURL = `comments/${interest}_comments.json`;
@@ -129,4 +131,22 @@ function getBillIDStyle(billID) {
     }
 
     return label;
+}
+
+function createEmailButton(button, interest, billId) {
+    const commentContainer = button.parentElement.querySelector('.comment-container');
+    const emailButton = document.createElement('button');
+    emailButton.classList.add('send-email');
+    emailButton.textContent = 'Send an Email';
+    emailButton.addEventListener('click', () => sendEmail(interest, billId, commentContainer.querySelector('textarea').value));
+    commentContainer.appendChild(emailButton);
+}
+
+function sendEmail(interest, billId, commentText) {
+    const subject = `I urge your support for Bill ${billId}`;
+    const body = commentText;
+
+    const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
 }
