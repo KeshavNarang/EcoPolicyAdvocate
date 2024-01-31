@@ -135,10 +135,11 @@ function getBillIDStyle(billID) {
 function createEmailButton(button, interest, billId) {
     const commentContainer = button.parentElement.querySelector('.comment-container');
     const emailButton = document.createElement('button');
+    commentContainer.removeChild(emailButton);
     emailButton.classList.add('send-email');
     emailButton.textContent = 'Send an Email';
     emailButton.addEventListener('click', () => sendEmail(interest, billId, commentContainer.querySelector('textarea').value));
-    //commentContainer.appendChild(emailButton);
+    commentContainer.appendChild(emailButton);
 }
 
 function sendEmail(interest, billId, commentText) {
