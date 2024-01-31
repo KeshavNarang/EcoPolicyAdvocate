@@ -138,7 +138,7 @@ function createEmailButton(button, interest, billId) {
     emailButton.classList.add('send-email');
     emailButton.textContent = 'Send an Email';
     emailButton.addEventListener('click', () => sendEmail(interest, billId, commentContainer.querySelector('textarea').value));
-    commentContainer.appendChild(emailButton);
+    //commentContainer.appendChild(emailButton);
 }
 
 function sendEmail(interest, billId, commentText) {
