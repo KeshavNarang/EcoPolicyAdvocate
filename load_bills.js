@@ -88,6 +88,10 @@ function toggleComment(button, interest, billId) {
     } else {
         commentContainer.style.display = 'none';
         toggleButton.textContent = 'Make a Comment';
+	const delbutton = document.querySelector('.send-email');
+	if (delbutton){
+		delbutton.parentNode.removeChild(delbutton);
+	}
     }
 }
 
